@@ -1,0 +1,94 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    border-bottom: 1px solid rgb(220,220,220);
+}
+
+#headerLeft h2{
+    margin: 0px;
+}
+
+#headerRight{
+    display: flex;
+    gap: 15px;
+}
+
+#top{
+    text-align: center;
+    padding: 80px 200px;
+}
+
+#top h1{
+    font-size: 48px;
+}
+
+#top p{
+    font-size: 18px;
+    color: gray;
+}
+
+#middle{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+}
+
+.card{
+    width: 300px;
+    border: 1px solid rgb(200,200,200);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+
+.card h3{
+    font-size: 32px;
+}
+
+.rec{
+    border: 2px solid rgb(15, 109, 204);
+    position: relative;
+}
+
+#badge{
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(15, 109, 204);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+button{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 1px solid rgb(15, 109, 204);
+    background-color: white;
+    color: rgb(15, 109, 204);
+}
+
+#enter{
+    background-color: rgb(15, 109, 204);
+    color: white;
+    border: none;
+}
+
+.bb:hover,
+#enter:hover{
+    cursor: pointer;
+}

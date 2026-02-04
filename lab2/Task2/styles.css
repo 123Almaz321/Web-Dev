@@ -1,0 +1,105 @@
+body{
+    display: flex;
+    margin: 0px;
+    color: white;
+    overflow: hidden;
+    padding: 0px;
+    height: 100vh;
+}
+#left{
+    width: 60%;
+    background-color: black;
+    height: 100%;
+}
+#right{
+    width: 40%;
+    height: 100%; 
+    background-color: rgb(37, 51, 54);
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 50px;
+    border-left: 1px solid rgb(169, 169, 169);
+}
+#logo{
+    height: 100px;
+    width: 100px;
+}
+h1{
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+#pic{
+    height: 400px;
+    width: 450px;
+}
+#down{
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+}
+#mlogo{
+    height:60px;
+    width:100px;
+}
+
+#topBlock{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#buttonsBlock{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-size: 20px;
+    border: 1px solid rgb(169, 169, 169);
+    color: solid rgb(169, 169, 169);
+    background-color: rgb(37, 51, 54);
+
+}
+input:not(:placeholder-shown) {
+    color: white;
+    border-color: rgb(169, 169, 169); 
+}
+button{
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 20px;
+    background-color:rgb(37, 51, 54);
+    border-radius: 20px;
+
+}
+a{
+    margin-top: 15px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+#enter{
+    color: white;
+    border: 0px;
+    background-color: rgb(15, 109, 204);
+}
+#enter:hover{
+    cursor: pointer;
+    background-color: rgb(13, 73, 133);
+}
+.bb{
+    border: solid rgb(15, 109, 204);
+    color: rgb(15, 109, 204);
+}
+.bb:hover{
+    cursor:pointer;
+}
