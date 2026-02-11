@@ -2,11 +2,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
 }
 
 header {
-    background-color: #212529;
+    background-color: rgb(33, 37, 41);
     padding: 15px 50px;
 }
 
@@ -31,7 +31,7 @@ header {
     width: 75%;
     font-size: 16px;
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid rgb(206, 212, 218);
     border-radius: 15px;
     box-sizing: border-box; 
 }
@@ -54,7 +54,7 @@ header {
 #list {
     list-style: none;
     padding: 0;
-    border: 1px solid #e0e0e0; 
+    border: 1px solid rgb(224, 224, 224); 
     border-radius: 4px;
 }
 
@@ -63,7 +63,7 @@ header {
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0; 
+    border-bottom: 1px solid rgb(224, 224, 224); 
 }
 
 .task-item:last-child {
@@ -83,7 +83,7 @@ header {
 }
 
 .task-item button {
-    color: #d9534f;
+    color: rgb(217, 83, 79);
     border: none;
     background: none;
     font-size: 20px;
@@ -93,16 +93,16 @@ header {
 }
 
 .task-item button:hover {
-    color: #c9302c;
+    color: rgb(201, 48, 44);
 }
 .task-item.done span {
     text-decoration: line-through;
-    color: #888;
+    color: rgb(136, 136, 136);
 }
 
 .delete-btn {
     font-size: 15px;
-    color: #ff4d4d;
+    color: rgb(255, 77, 77);
     background: none;
     border: none;
     cursor: pointer;
