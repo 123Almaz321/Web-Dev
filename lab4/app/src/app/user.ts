@@ -1,9 +1,30 @@
-import {Component, input} from '@angular/core';
+import {Component} from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+
 
 @Component({
   selector: 'app-user',
-  template: `<p>The user's occupation is {{occupation()}}</p>`
+  template: `
+    <p>Username: {{ username }}</p>
+    <p>Preferred Framework:</p>
+    <ul>
+      <li>
+        Static Image:
+        <img ngSrc="/logo.svg" alt="Angular logo" width="32" height="32" />
+      </li>
+      <li>
+        Dynamic Image:
+        <img [ngSrc]="logoUrl" [alt]="logoAlt" width="32" height="32" />
+      </li>
+    </ul>
+    <div class="image-container">
+      <img ngSrc="www.example.com/image.png" fill />
+    </div>
+  `,
+  imports: [NgOptimizedImage],
 })
 export class User {
-  occupation = input<string>();
+  logoUrl = 'https://img.olympics.com/images/image/private/t_16-9_380/f_auto/primary/u4npf74gphtgeorjdi4r';
+  logoAlt = 'Angular logo';
+  username = 'youngTech';
 }
