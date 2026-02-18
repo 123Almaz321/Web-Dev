@@ -1,9 +1,19 @@
 import {Component} from '@angular/core';
 
 @Component({
+  selector: 'app-user',
+  template: ` Username: {{ username }} `,
+})
+export class User {
+  username = 'youngTech';
+}
+
+@Component({
   selector: 'app-root',
-  template: `Hello {{ city }}, {{1 + 1}}`,
+  template: `
+  <section><app-user /></section>`,
+  imports: [User]
 })
 export class App {
-  city = 'San Francisco';
+  
 }
