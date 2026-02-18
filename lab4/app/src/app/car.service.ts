@@ -1,5 +1,8 @@
 import {Injectable} from '@angular/core';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class CarService {
   cars = ['Sunflower GT', 'Flexus Sport', 'Sprout Mach One'];
 
@@ -10,13 +13,4 @@ export class CarService {
   getCar(id: number) {
     return this.cars[id];
   }
-
- 
-
-}
-
-@Injectable({
-    providedIn: 'root',
-    })
-class UserService {
 }

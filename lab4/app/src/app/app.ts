@@ -1,18 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { CarService } from './car.service';
+import {Component, inject} from '@angular/core';
+import {CarService} from './car.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  template: `
-    <h1>Список машин</h1>
-    <ul>
-      @for (car of carSrv.getCars(); track car) {
-        <li>{{ car }}</li>
-      }
-    </ul>
-  `,
+  template: `<p>Car Listing: {{ display }}</p>`,
 })
 export class App {
-  carSrv = inject(CarService);
+  carService = inject(CarService);
+  display = this.carService.getCars().join(' ⭐️ ');
 }
