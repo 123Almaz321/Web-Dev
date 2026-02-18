@@ -1,21 +1,18 @@
-import {Component} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
-import {ReactiveFormsModule, Validators} from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { CarService } from './car.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   template: `
-    <form [formGroup]="profileForm">
-      <input type="text" formControlName="name" name="name" />
-      <input type="email" formControlName="email" name="email" />
-      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-    </form>
+    <h1>Список машин</h1>
+    <ul>
+      @for (car of carSrv.getCars(); track car) {
+        <li>{{ car }}</li>
+      }
+    </ul>
   `,
-  imports: [ReactiveFormsModule],
 })
 export class App {
-  profileForm = new FormGroup({
-  name: new FormControl('', Validators.required),
-  email: new FormControl('', [Validators.required, Validators.email]),
-}); 
+  carSrv = inject(CarService);
 }
