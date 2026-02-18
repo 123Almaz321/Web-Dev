@@ -1,25 +1,9 @@
 import {Component} from '@angular/core';
+import {User} from './user';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <section (mouseover) = "showSecretMessage()">
-      There's a secret message for you, hover to reveal 👀
-      {{ message }}
-    </section>
-
-    <button (click)="greet()" [textContent]="btnText">
-  `,
+  template: `<app-user occupation="Angular Developer"></app-user>`,
+  imports: [User],
 })
-export class App {
-  message = '';
-  btnText = "hello"
-
-  showSecretMessage() {
-    this.message = 'Way to go 🚀';
-  }
-
-  greet() {
-    console.log('Hello, there 👋');
-  }
-}
+export class App {}
