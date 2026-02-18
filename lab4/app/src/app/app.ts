@@ -1,18 +1,35 @@
-import {Component} from '@angular/core';
-import {Child} from './child';
+import { Component } from '@angular/core';
+import { Comments } from './comments';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [Comments],
   template: `
-    <app-child />
-    <p>🐢 all the way down {{ items.length }}</p>
-  `,
-  imports: [Child],
-})
-export class App {
-  items = new Array();
+    <div>
+      <h1>How I feel about Angular</h1>
+      
+      <article>
+        <p>
+          Angular is my favorite framework, and this is why. Angular has the coolest deferrable view
+          feature that makes defer loading content the easiest and most ergonomic it could possibly be.
+        </p>
+        <p>
+          I can't express enough how much I enjoy working with Angular. It offers the best developer
+          experience I've ever had.
+        </p>
+        <p>Angular is great...</p><p>Angular is great...</p><p>Angular is great...</p>
+        <p>Angular is great...</p><p>Angular is great...</p><p>Angular is great...</p>
+      </article>
 
-  addItem(item: string) {
-    this.items.push(item);
-  }
-}
+      @defer (on viewport) {
+        <comments />
+      } @placeholder {
+        <p>Future comments</p>
+      } @loading (minimum 2s) {
+        <p>Loading comments...</p>
+      }
+    </div>
+  `,
+})
+export class App {}
