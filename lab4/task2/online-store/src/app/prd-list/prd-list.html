@@ -1,0 +1,16 @@
+<div class="grd">
+  @for (p of prds; track p.id) {
+    <div class="crd">
+      <img [src]="p.img" [alt]="p.nam">
+      <h3>{{ p.nam }}</h3>
+      <p>{{ p.dsc }}</p>
+      <div class="inf">
+        <span class="prc">{{ p.prc }} ₸</span>
+      </div>
+      <div class="btns">
+        <a [href]="p.lnk" target="_blank" class="buy">Купить на Kaspi</a>
+        <button (click)="shr(p.lnk, p.nam)">Share</button>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,16 @@
+<div class="event-card">
+  <img [src]="event.image" [alt]="event.name">
+  <h3>{{ event.name }}</h3>
+  <p>{{ event.description }}</p>
+  <div class="event-details">
+    <span class="price">{{ event.price }} ₸</span>
+    <span class="rating">⭐ {{ event.rating }}</span>
+  </div>
+  <div class="actions">
+    <a [href]="event.link" target="_blank" class="buy-button">Купить билеты</a>
+    <div class="share-buttons">
+      <button (click)="shareToTelegram()">TG</button>
+      <button (click)="shareToWhatsApp()">WA</button>
+    </div>
+  </div>
+</div>

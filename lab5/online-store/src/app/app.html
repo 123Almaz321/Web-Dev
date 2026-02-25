@@ -1,0 +1,20 @@
+<div class="container">
+  <nav class="categories">
+    @for (cat of categories; track cat.id) {
+      <button (click)="selectCategory(cat.id)" [class.active]="selectedCategoryId === cat.id">
+        {{ cat.name }}
+      </button>
+    }
+  </nav>
+
+  <main>
+    @if (selectedCategoryId) {
+      <app-product-list 
+        [products]="filteredProducts" 
+        (removeProduct)="removeProductFromAll($event)">
+      </app-product-list>
+    } @else {
+      <div class="welcome">Please select a category to start shopping.</div>
+    }
+  </main>
+</div>
