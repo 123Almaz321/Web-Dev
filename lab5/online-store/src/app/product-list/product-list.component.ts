@@ -11,10 +11,9 @@ import { ProductItemComponent } from '../product-item/product-item.component';
       @for (prod of products; track prod.id) {
         <app-product-item 
           [product]="prod" 
-          (remove)="handleDelete($event)">
+          (remove)="removeProduct.emit($event)"
+          (toggleFav)="toggleFavorite.emit($event)">
         </app-product-item>
-      } @empty {
-        <div class="empty-msg">No products left in this category.</div>
       }
     </div>
   `,
@@ -23,8 +22,5 @@ import { ProductItemComponent } from '../product-item/product-item.component';
 export class ProductListComponent {
   @Input() products: Product[] = [];
   @Output() removeProduct = new EventEmitter<number>();
-
-  handleDelete(id: number) {
-    this.removeProduct.emit(id);
-  }
+  @Output() toggleFavorite = new EventEmitter<number>();
 }

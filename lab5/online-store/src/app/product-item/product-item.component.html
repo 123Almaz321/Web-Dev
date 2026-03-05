@@ -1,40 +1,27 @@
 <div class="product-card">
-  <div class="product-image">
-    <img [src]="product.image" [alt]="product.name">
-  </div>
-
-  <div class="product-info">
+  <img [src]="product.image" [alt]="product.name">
+  
+  <div class="info">
     <h3>{{ product.name }}</h3>
-    <p class="description">{{ product.description }}</p>
+    <p class="price">{{ product.price | number }} ₸</p>
+  </div>
+  
+  <div class="actions">
+    <button (click)="onFavoriteClick()" class="btn-fav" [class.is-fav]="product.isFavorite">
+      {{ product.isFavorite ? 'Remove' : 'Add to Favorites' }}
+    </button>
     
-    <div class="product-details">
-      <span class="price">{{ product.price | number }} ₸</span>
-      <span class="rating">⭐ {{ product.rating }}</span>
-    </div>
-
-    <div class="likes-count">
-      Likes: <strong>{{ product.likes }}</strong>
+    <div class="btn-row">
+      <button (click)="like()" class="btn-like">❤️ {{ product.likes }}</button>
+      <button (click)="remove.emit(product.id)" class="btn-del">Del</button>
     </div>
   </div>
 
-  <div class="product-actions">
-    <div class="main-actions">
-      <button class="like-btn" (click)="like()">
-        Like
-      </button>
-      <button class="delete-btn" (click)="delete()">
-        Delete
-      </button>
+  <div class="share-row">
+    <div class="links">
+      <button (click)="share('tg')" style="padding: 2px 5px; font-size: 9px;">TG</button>
+      <button (click)="share('wa')" style="padding: 2px 5px; font-size: 9px;">WA</button>
     </div>
-
-    <div class="share-actions">
-      <span>Share:</span>
-      <button class="share-tg" (click)="share('tg')">Telegram</button>
-      <button class="share-wa" (click)="share('wa')">WhatsApp</button>
-    </div>
-
-    <a [href]="product.link" target="_blank" class="buy-link">
-      View on Kaspi.kz
-    </a>
+    <a [href]="product.link" target="_blank" class="kaspi-link">Kaspi →</a>
   </div>
 </div>

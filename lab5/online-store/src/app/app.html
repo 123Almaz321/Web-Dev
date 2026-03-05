@@ -7,11 +7,29 @@
     }
   </nav>
 
+  <section class="favorites-section">
+    <h2>⭐ Favorites ({{ favorites.length }})</h2>
+    <div class="favorites-grid">
+      @for (fav of favorites; track fav.id) {
+        <app-product-item 
+          [product]="fav" 
+          (remove)="removeProduct($event)"
+          (toggleFav)="toggleFavorite($event)">
+        </app-product-item>
+      } @empty {
+        <p class="empty-msg">No favorite products yet</p>
+      }
+    </div>
+  </section>
+
+  <hr>
+
   <main>
     @if (selectedCategoryId) {
       <app-product-list 
         [products]="filteredProducts" 
-        (removeProduct)="removeProductFromAll($event)">
+        (removeProduct)="removeProduct($event)"
+        (toggleFavorite)="toggleFavorite($event)">
       </app-product-list>
     } @else {
       <div class="welcome">Please select a category to start shopping.</div>

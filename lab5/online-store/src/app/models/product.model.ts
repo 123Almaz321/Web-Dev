@@ -1,3 +1,8 @@
+export interface Category {
+  id: number;
+  name: string;
+}
+
 export interface Product {
   id: number;
   categoryId: number;
@@ -7,6 +12,6 @@ export interface Product {
   rating: number;
   likes: number;
   image: string;
-  images?: string[]; 
   link: string;
+  isFavorite: boolean; 
 }

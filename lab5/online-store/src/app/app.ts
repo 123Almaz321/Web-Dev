@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ProductService } from './product.service';
-import { Product } from './models/product.model';
-import { Category } from './models/category.model';
+import { Category, Product } from './models/product.model';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductListComponent],
+  imports: [CommonModule, ProductListComponent, ProductItemComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   categories: Category[];
   allProducts: Product[];
-  filteredProducts: Product[] = []; 
+  favorites: Product[] = []; 
   selectedCategoryId: number | null = null;
 
   constructor(private productService: ProductService) {
@@ -22,17 +23,24 @@ export class App {
     this.allProducts = this.productService.getProducts();
   }
 
+  get filteredProducts() {
+    return this.allProducts.filter(p => p.categoryId === this.selectedCategoryId);
+  }
+
   selectCategory(id: number) {
     this.selectedCategoryId = id;
-    this.updateFilteredProducts();
   }
 
-  removeProductFromAll(id: number) {
+  toggleFavorite(productId: number) {
+    const product = this.allProducts.find(p => p.id === productId);
+    if (product) {
+      product.isFavorite = !product.isFavorite;
+      this.favorites = this.allProducts.filter(p => p.isFavorite);
+    }
+  }
+
+  removeProduct(id: number) {
     this.allProducts = this.allProducts.filter(p => p.id !== id);
-    this.updateFilteredProducts();
-  }
-
-  private updateFilteredProducts() {
-    this.filteredProducts = [...this.allProducts.filter(p => p.categoryId === this.selectedCategoryId)];
+    this.favorites = this.favorites.filter(p => p.id !== id);
   }
 }
