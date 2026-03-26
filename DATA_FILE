@@ -1,0 +1,30 @@
+[
+    {
+        "type": "Car",
+        "brand": "Toyota",
+        "model": "Camry",
+        "year": 2022,
+        "fuel_type": "Gasoline"
+    },
+    {
+        "type": "Car",
+        "brand": "Tesla",
+        "model": "Model 3",
+        "year": 2023,
+        "fuel_type": "Electric"
+    },
+    {
+        "type": "Motorcycle",
+        "brand": "BMW",
+        "model": "R1250GS",
+        "year": 2021,
+        "has_sidecar": false
+    },
+    {
+        "type": "Motorcycle",
+        "brand": "Ural",
+        "model": "Gear Up",
+        "year": 2020,
+        "has_sidecar": true
+    }
+]

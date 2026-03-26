@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, PLATFORM_ID, Inject, ChangeDetectorRef } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { ProductService } from './product.service';
 import { Category, Product } from './models/product.model';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -12,19 +12,33 @@ import { ProductItemComponent } from './product-item/product-item.component';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  categories: Category[];
-  allProducts: Product[];
-  favorites: Product[] = []; 
+export class App implements OnInit {
+  categories: Category[] = [];
+  allProducts: Product[] = [];
+  favorites: Product[] = [];
   selectedCategoryId: number | null = null;
 
-  constructor(private productService: ProductService) {
-    this.categories = this.productService.getCategories();
-    this.allProducts = this.productService.getProducts();
+  constructor(
+    private productService: ProductService,
+    private cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.productService.getCategories().subscribe(data => {
+        this.categories = [...data];
+        this.cdr.detectChanges();
+      });
+      this.productService.getProducts().subscribe(data => {
+        this.allProducts = [...data];
+        this.cdr.detectChanges();
+      });
+    }
   }
 
   get filteredProducts() {
-    return this.allProducts.filter(p => p.categoryId === this.selectedCategoryId);
+    return this.allProducts.filter(p => p.category_id === this.selectedCategoryId);
   }
 
   selectCategory(id: number) {

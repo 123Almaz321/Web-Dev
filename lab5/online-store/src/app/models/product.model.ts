@@ -5,13 +5,14 @@ export interface Category {
 
 export interface Product {
   id: number;
-  categoryId: number;
+  category_id: number;
   name: string;
   description: string;
   price: number;
-  rating: number;
-  likes: number;
-  image: string;
-  link: string;
-  isFavorite: boolean; 
+  count: number;
+  is_active: boolean;
+  likes?: number;
+  image?: string;
+  link?: string;
+  isFavorite?: boolean;
 }

@@ -10,18 +10,24 @@ import { Product } from '../models/product.model';
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
-  @Input() product!: Product; 
+  @Input() product!: Product;
   @Output() remove = new EventEmitter<number>();
-  @Output() toggleFav = new EventEmitter<number>(); 
+  @Output() toggleFav = new EventEmitter<number>();
 
-  like() { this.product.likes++; }
-  
+  like() { 
+    if (this.product.likes !== undefined) {
+      this.product.likes++;
+    } else {
+      this.product.likes = 1;
+    }
+  }
+
   onFavoriteClick() {
-    this.toggleFav.emit(this.product.id); 
+    this.toggleFav.emit(this.product.id);
   }
 
   share(platform: string) {
-    const url = encodeURIComponent(this.product.link);
+    const url = encodeURIComponent(this.product.link || '');
     const link = platform === 'tg' ? `https://t.me/share/url?url=${url}` : `https://wa.me/?text=${url}`;
     window.open(link, '_blank');
   }
