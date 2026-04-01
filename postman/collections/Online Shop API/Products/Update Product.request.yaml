@@ -1,0 +1,10 @@
+$kind: http-request
+url: localhost:8000/api/products/1/
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "Updated Product", "price": 199.99, "description": "Updated
+    description", "count": 5, "is_active": true, "category": 1}'
+order: 4000
