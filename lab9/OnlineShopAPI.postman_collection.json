@@ -58,6 +58,19 @@
           "request": { "method": "DELETE", "url": { "raw": "http://localhost:8000/api/products/1/", "host": ["localhost"], "port": "8000", "path": ["api", "products", "1", ""] } }
         }
       ]
+    },
+    {
+      "name": "Search & Filters",
+      "item": [
+        {
+          "name": "Search Products",
+          "request": { "method": "GET", "url": { "raw": "http://localhost:8000/api/products/?search=phone", "host": ["localhost"], "port": "8000", "path": ["api", "products", ""], "query": [{ "key": "search", "value": "phone" }] } }
+        },
+        {
+          "name": "Sort Products by Price",
+          "request": { "method": "GET", "url": { "raw": "http://localhost:8000/api/products/?ordering=-price", "host": ["localhost"], "port": "8000", "path": ["api", "products", ""], "query": [{ "key": "ordering", "value": "-price" }] } }
+        }
+      ]
     }
   ]
 }

@@ -1,8 +1,17 @@
+from api.views.generics import (
+    ProductListAPIView,
+    ProductDetailAPIView,
+    CategoryListAPIView,
+    CategoryDetailAPIView,
+    CategoryProductsAPIView,
+)
+
+
 from rest_framework import viewsets, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from .models import Category, Product
-from .serializers import CategorySerializer, ProductSerializer
+from api.models import Category, Product
+from api.serializers import CategorySerializer, ProductSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
